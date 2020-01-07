@@ -9,10 +9,10 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
 COPY . .
 RUN dotnet restore "Stock.API/Stock.API.csproj"
-RUN dotnet build "Stock.API.csproj" -c Release -o /app/build
+RUN dotnet build "Stock.API/Stock.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Stock.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "Stock.API/Stock.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

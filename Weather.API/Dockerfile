@@ -9,10 +9,10 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
 COPY . .
 RUN dotnet restore "Weather.API/Weather.API.csproj"
-RUN dotnet build "Weather.API.csproj" -c Release -o /app/build
+RUN dotnet build "Weather.API/Weather.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Weather.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "Weather.API/Weather.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
