@@ -58,7 +58,7 @@ namespace ApiGateway.API
             //Api gateway
             app.UseApiGateway(orchestrator => ApiOrchestration.Create(orchestrator, app));
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
