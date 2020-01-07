@@ -9,10 +9,10 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
 COPY . .
 RUN dotnet restore "ApiGateway.API/ApiGateway.API.csproj"
-RUN dotnet build "Weather.API/ApiGateway.API.csproj" -c Release -o /app/build
+RUN dotnet build "ApiGateway.API/ApiGateway.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Weather.API/ApiGateway.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "ApiGateway.API/ApiGateway.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
