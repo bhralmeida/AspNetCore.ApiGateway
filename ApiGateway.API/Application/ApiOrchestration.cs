@@ -25,14 +25,16 @@ namespace ApiGateway.API
                                 //Get using custom implementation
                                 .AddRoute("typescustom", GatewayVerb.GET, weatherService.GetTypes)
                                 //Post
-                                .AddRoute("add", GatewayVerb.POST, new RouteInfo { Path = "weatherforecast/types/add", RequestType = typeof(AddWeatherTypeRequest), ResponseType = typeof(string[])})
+                                .AddRoute("add", GatewayVerb.POST, new RouteInfo { Path = "weatherforecast/types/add", RequestType = typeof(AddWeatherTypeRequest), ResponseType = typeof(string[]) })
                                 //Put
                                 .AddRoute("update", GatewayVerb.PUT, new RouteInfo { Path = "weatherforecast/types/update", RequestType = typeof(UpdateWeatherTypeRequest), ResponseType = typeof(string[]) })
                                 //Delete
                                 .AddRoute("remove", GatewayVerb.DELETE, new RouteInfo { Path = "weatherforecast/types/remove/", ResponseType = typeof(string[]) })
                         .AddApi("stockservice", "http://sigma-stock/")
                                 .AddRoute("stocks", GatewayVerb.GET, new RouteInfo { Path = "stock", ResponseType = typeof(IEnumerable<StockQuote>) })
-                                .AddRoute("stock", GatewayVerb.GET, new RouteInfo { Path = "stock/", ResponseType = typeof(StockQuote) });
+                                .AddRoute("stock", GatewayVerb.GET, new RouteInfo { Path = "stock/", ResponseType = typeof(StockQuote) })
+                        .AddApi("externalservice", "https://jsonplaceholder.typicode.com/")
+                                .AddRoute("posts", GatewayVerb.GET, new RouteInfo { Path = "posts", ResponseType = typeof(IEnumerable<StockQuote>) });
         }
     }
 }
