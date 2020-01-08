@@ -15,7 +15,7 @@ namespace ApiGateway.API
 
             var weatherApiClientConfig = weatherService.GetClientConfig();
 
-            orchestrator.AddApi("weatherservice", "http://sigma-weather.sigma.local/")
+            orchestrator.AddApi("weatherservice", "http://localhost:32825/")
                                 //Get
                                 .AddRoute("forecast", GatewayVerb.GET, new RouteInfo { Path = "weatherforecast/forecast", ResponseType = typeof(IEnumerable<WeatherForecast>) })
                                 //Get using custom HttpClient
@@ -30,7 +30,7 @@ namespace ApiGateway.API
                                 .AddRoute("update", GatewayVerb.PUT, new RouteInfo { Path = "weatherforecast/types/update", RequestType = typeof(UpdateWeatherTypeRequest), ResponseType = typeof(string[]) })
                                 //Delete
                                 .AddRoute("remove", GatewayVerb.DELETE, new RouteInfo { Path = "weatherforecast/types/remove/", ResponseType = typeof(string[]) })
-                        .AddApi("stockservice", "http://sigma-stock.sigma.local/")
+                        .AddApi("stockservice", "https://localhost:5001/")
                                 .AddRoute("stocks", GatewayVerb.GET, new RouteInfo { Path = "stock", ResponseType = typeof(IEnumerable<StockQuote>) })
                                 .AddRoute("stock", GatewayVerb.GET, new RouteInfo { Path = "stock/", ResponseType = typeof(StockQuote) });
         }

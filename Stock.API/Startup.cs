@@ -39,7 +39,7 @@ namespace Stock.API
 
             app.UseHealthChecks("/check");
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
