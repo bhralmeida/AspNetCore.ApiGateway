@@ -36,7 +36,7 @@ namespace ApiGateway.API
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My Api Gateway", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api Gateway", Version = "v1" });
             });
         }
 
@@ -46,13 +46,13 @@ namespace ApiGateway.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseHealthChecks("/check");
+            app.UseHealthChecks("/check", port:8000);
 
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Api Gateway");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api Gateway");
             });
 
             //Api gateway

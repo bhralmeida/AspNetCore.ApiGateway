@@ -37,7 +37,7 @@ namespace Stock.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHealthChecks("/check");
+            app.UseHealthChecks("/check", port:8000);
 
             //app.UseHttpsRedirection();
 
