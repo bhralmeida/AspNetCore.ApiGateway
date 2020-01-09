@@ -1,9 +1,9 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-bionic AS base
+ENV ASPNETCORE_URLS=http://+:80;http://+:8000
 WORKDIR /app
-EXPOSE 80
-EXPOSE 8000
+EXPOSE 80 8000
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-bionic AS build
 WORKDIR /src
